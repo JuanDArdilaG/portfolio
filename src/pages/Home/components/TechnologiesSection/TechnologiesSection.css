@@ -1,0 +1,63 @@
+.section {
+  @apply w-1/3 px-20;
+}
+
+.section > ul {
+  @apply mt-8 opacity-30 transition-opacity duration-500;
+}
+
+.section:hover > ul {
+  @apply opacity-100;
+}
+
+.section > h3 {
+  @apply text-2xl text-center opacity-60 transition-opacity duration-300;
+}
+
+.section:hover > h3 {
+  @apply opacity-100;
+}
+
+.section li {
+  @apply py-2 cursor-pointer transition-all duration-300 border-collapse border-b border-t border-transparent;
+}
+
+.section li:hover {
+  @apply font-semibold pl-4 border-gray-300 border-b border-t;
+}
+
+.section li:hover .icon-front {
+  @apply text-blue-500;
+}
+
+.section li:hover .icon-back {
+  @apply text-red-500;
+}
+
+.section li:hover .icon-uiux {
+  @apply text-yellow-500;
+}
+
+.front-title {
+  @apply transition-colors duration-300;
+}
+
+.section:hover > .front-title {
+  @apply text-blue-700;
+}
+
+.back-title {
+  @apply transition-colors duration-300;
+}
+
+.section:hover > .back-title {
+  @apply text-red-600;
+}
+
+.uiux-title {
+  @apply transition-colors duration-300;
+}
+
+.section:hover > .uiux-title {
+  @apply text-yellow-600;
+}

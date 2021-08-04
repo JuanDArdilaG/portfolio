@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Home from "./pages/Home/Home";
+import { BrowserRouter, Switch, Redirect, Route } from "react-router-dom";
+import AboutMe from "./pages/AboutMe/AboutMe";
 
-function App() {
+type AppState = {
+  lang: "spa" | "eng";
+  setLang: (lang: "spa" | "eng") => void;
+};
+export const AppContext = React.createContext({
+  lang: "spa",
+  setLang: () => {},
+} as AppState);
+
+export default function App() {
+  const [lang, setLang] = useState("spa" as "spa" | "eng");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AppContext.Provider
+        value={{
+          lang,
+          setLang,
+        }}
+      >
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+            <Route exact path="/home">
+              <Home />
+            </Route>
+            <Route exact path="/aboutme">
+              <AboutMe />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </AppContext.Provider>
     </div>
   );
 }
-
-export default App;

@@ -1,0 +1,25 @@
+#hi {
+  animation-name: appearInFromNone;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 100ms;
+}
+
+#presentation {
+  animation-name: appearInFromNone;
+  animation-duration: 4s;
+  animation-timing-function: ease-out;
+  animation-delay: 1500ms;
+}
+
+@keyframes appearInFromNone {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
